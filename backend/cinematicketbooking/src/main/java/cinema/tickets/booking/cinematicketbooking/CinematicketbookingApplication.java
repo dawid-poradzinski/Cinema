@@ -1,14 +1,11 @@
 package cinema.tickets.booking.cinematicketbooking;
 
-import java.util.Arrays;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @SpringBootApplication
-@RestController
+@CrossOrigin(origins = "http://localhost:3000/")
 public class CinematicketbookingApplication
 {
 
@@ -17,10 +14,6 @@ public class CinematicketbookingApplication
 		SpringApplication.run(CinematicketbookingApplication.class, args);
 	}
 
-	@RequestMapping("/people")
-	public String showPeople()
-	{
-		return Arrays.asList("Przemek","Tomek","Kacper").toString();
-	}
+
 	
 }
