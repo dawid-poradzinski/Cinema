@@ -14,3 +14,7 @@ body {
   background-image: url("/public/example.jpg");
   background-size: cover;
 }
+
+input {
+  @apply bg-gray-800 p-3 rounded-md border border-gray-700 focus:outline-none
+}

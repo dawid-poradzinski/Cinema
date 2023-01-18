@@ -8,6 +8,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Account from './pages/Account';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
       {
         path: "repertoire",
         element: <Repertoire />
+      }, 
+      {
+        path: "account",
+        element: <Account />
       }
 
     ]
