@@ -14,6 +14,4 @@ public class CinematicketbookingApplication
 		SpringApplication.run(CinematicketbookingApplication.class, args);
 	}
 
-
-	
 }

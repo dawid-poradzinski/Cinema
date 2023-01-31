@@ -1,44 +1,60 @@
 package cinema.tickets.booking.cinematicketbooking.movies;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 // Przekazanie, że jest to rzecz z bazy
-@Entity
+@Entity(name = "Movie") //Podobno wypada sprecyzować nazwę tabeli
 public class Movie
 {
-    
     // główny klucz
     @Id
-    private String id;
-    private String name;
+    @GeneratedValue(strategy = GenerationType.AUTO) // Można tworzyć własne poprzez @SequenceGenerator (o ile się zwiększa itd)
+    @Column(name = "id", updatable = false) //Opis poszczególnych kolumn. Nie musi tego być. Wybieramy nazwę i że nie może być updatowana kolumna id
+    private Integer id;
+
+    @Column(name = "title", nullable = false, columnDefinition = "TEXT")
+    private String title;
+
+    @Column(name = "description", nullable = false, columnDefinition = "JSON")
     private String description;
     
-    public Movie(String id, String name, String description)
+    public Movie() {};
+
+    public Movie(String title, String description)
     {
-        this.id = id;
-        this.name = name;
+        this.title = title;
         this.description = description;
     }
 
-    public String getId()
+    public Movie(int id, String title, String description)
+    {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+    }
+
+    public int getId()
     {
         return id;
     }
 
-    public void setId(String id)
+    public void setId(int id)
     {
         this.id = id;
     }
 
-    public String getName()
+    public String getTitle()
     {
-        return name;
+        return title;
     }
 
-    public void setName(String name)
+    public void setTitle(String title)
     {
-        this.name = name;
+        this.title = title;
     }
 
     public String getDescription()
@@ -50,5 +66,5 @@ public class Movie
     {
         this.description = description;
     }
-    
+
 }
