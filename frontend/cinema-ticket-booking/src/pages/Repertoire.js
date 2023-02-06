@@ -18,7 +18,7 @@ const Repertoire = () => {
       }, []);
 
     return ( 
-        <div className="flex space-x-4 p-4 shrink-0">
+        <div className="flex flex-col space-x-4 p-4 shrink-0">
             {data}
         </div>
      );
