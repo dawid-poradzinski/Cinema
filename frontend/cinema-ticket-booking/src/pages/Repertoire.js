@@ -7,11 +7,13 @@ const Repertoire = () => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        axios.get(getAllMovies).then((response) => {
+        axios.post(getAllMovies).then((response) => {
           let responseData = response.data;
           const movies = responseData.map((single) => <MovieShortDesc key={single.id} data={single}/>);
           setData(movies);
           console.log(responseData);
+        }).catch(e => {
+          alert(e);
         });
       }, []);
 
