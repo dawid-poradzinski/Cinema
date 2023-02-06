@@ -1,9 +1,10 @@
 import AddEditMovie from "../components/AddEditMovie";
+import Login from "../components/Login";
 
 const Account = () => {
     return ( 
-        <div>
-            <AddEditMovie/>
+        <div className="pt-24">
+            <Login/>
         </div>
      );
 }

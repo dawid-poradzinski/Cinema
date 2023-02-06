@@ -9,12 +9,17 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Account from './pages/Account';
+import Home from './pages/Home';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
     children: [
+      {
+        path: "/",
+        element: <Home />
+      },
       {
         path: "repertoire",
         element: <Repertoire />
