@@ -3,7 +3,7 @@ import Login from "../components/Login";
 
 const Account = () => {
     return ( 
-        <div className="pt-24">
+        <div className="">
             <Login/>
         </div>
      );
