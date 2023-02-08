@@ -8,25 +8,19 @@ const MovieShortDesc = (props) => {
     const handleClick = (e) => {
         e.preventDefault();
         axios.delete(deleteMovie(data.id))
-        .then((response) => {
-            console.log(response);
-        })
-        .catch((error) => {
-            alert(error);
-        });
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                alert(error);
+            });
     }
     return (
-        <div className="MovieDescRoot flex flex-col bg-gray-800 w-44 h-[420px] rounded-lg overflow-hidden">
-            <div className="MovieImg bg-green-500 w-full h-64 flex-shrink-0" />
-            <div className="MovieDescText flex flex-col justify-evenly h-full px-3.5 w-full">
-                <p className="text-white font-semibold">{data.title}</p>
-                <p className="font-light text-xs line-clamp-3">{data.description}</p>
-                <div className="BuyButton w-full h-8 bg-red-700 rounded-md flex items-center justify-center cursor-pointer hover:bg-red-600 transition-all">
-                    <p className="text-sm font-semibold align-middle select-none">Kup teraz</p>
-                </div>
-                <div onClick={handleClick} className="BuyButton w-full h-8 bg-green-700 rounded-md flex items-center justify-center cursor-pointer hover:bg-red-600 transition-all">
-                    <p className="text-sm font-semibold align-middle select-none">Usuń</p>
-                </div>
+        <div className="flex flex-col h-72 w-36 md:h-96 md:w-52 bg-zinc-800 rounded-md overflow-auto cursor-pointer hover:-translate-y-1.5 transition duration-500 hover:brightness-150 hover:shadow-lg hover:shadow-white/10">
+            <div className="flex flex-col h-full bg-cover bg-center" style={{ backgroundImage: 'url("/example1.jpg")' }}>
+            </div>
+            <div className="m-2">
+                <p className="text-sm text-center line-clamp-2">{data.title}</p>
             </div>
         </div>
     );
