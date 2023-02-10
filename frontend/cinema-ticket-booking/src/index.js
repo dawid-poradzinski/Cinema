@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import Account from './pages/Account';
 import Home from './pages/Home';
+import AddEditMovie from './admin/AddEditMovie';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "account",
         element: <Account />
+      },
+      {
+        path: "admin",
+        element: <AddEditMovie/>
       }
 
     ]
