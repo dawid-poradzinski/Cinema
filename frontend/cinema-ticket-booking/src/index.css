@@ -31,3 +31,7 @@ input, textarea {
 .adminContentContainer {
   @apply bg-zinc-800 p-5;
 }
+
+.pageMainDivStyle {
+  @apply flex flex-col w-full pt-20 lg:pt-24 pb-10 px-1.5 items-center;
+}

@@ -11,6 +11,7 @@ import {
 import Account from './pages/Account';
 import Home from './pages/Home';
 import AddEditMovie from './admin/AddEditMovie';
+import Movie from './pages/Movie';
 
 const router = createBrowserRouter([
   {
@@ -32,7 +33,11 @@ const router = createBrowserRouter([
       {
         path: "admin",
         element: <AddEditMovie/>
-      }
+      },
+      {
+        path: "movie",
+        element: <Movie/>
+      },
 
     ]
   },

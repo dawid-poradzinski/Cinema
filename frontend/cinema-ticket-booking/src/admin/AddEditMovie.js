@@ -106,7 +106,7 @@ const AddEditMovie = () => {
     }
 
     return (
-        <div className="flex flex-col w-full pt-20 lg:pt-24 pb-10 px-1.5 items-center">
+        <div className="pageMainDivStyle">
             <div className="adminMainContainer lg:mt-8">
                 <p className="adminParagraph">Dodaj lub edytuj film</p>
                 <div className="adminContentContainer">
