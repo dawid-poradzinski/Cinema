@@ -44,6 +44,9 @@ const AddEditMovie = () => {
     //send changes to the server
     const handleSubmit = (e) => {
         e.preventDefault();
+        let finalValues = inputs;
+        finalValues.description = '{"description":"' + finalValues.description + '"}';
+        console.log(finalValues);
         axios.put(putMovie, inputs)
             .then((response) => {
                 handleShowToast("success", "Pomyślnie przesłano dane do bazy danych", "");
