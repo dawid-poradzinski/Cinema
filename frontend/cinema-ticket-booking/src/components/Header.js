@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
     return (
-        <div className="fixed w-full p-1.5">
+        <div className="fixed w-full p-1.5 z-10">
             <div className="flex px-5 w-full h-16 lg:h-20 bg-zinc-800/80 items-center rounded-md backdrop-blur-md">
                 <div className="w-1/3 lg:w-fit lg:order-2 lg:mr-4">
                     <div className="w-fit">

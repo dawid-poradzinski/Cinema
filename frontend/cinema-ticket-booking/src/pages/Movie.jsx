@@ -1,36 +1,52 @@
-import { IconDeviceTv, IconStarFilled, IconTicket } from "@tabler/icons-react";
+import { IconDeviceTv, IconStar, IconStarFilled, IconTicket } from "@tabler/icons-react";
+import AddReview from "../components/AddReview";
+import Review from "../components/Review";
+import ReviewsSummary from "../components/ReviewsSummary";
 
 const Movie = () => {
     return (
-        <div className="pageMainDivStyle">
-            <div className="w-full rounded-md bg-zinc-800 flex flex-col p-3.5 space-y-4">
+        <div className="pageMainDivStyle bg-fixed bg-center bg-cover bg-no-repeat " style={{backgroundImage: `url('example1.jpg')`}}>
+            <div className="w-full rounded-md bg-zinc-800/90 flex flex-col p-3.5 space-y-4">
                 <div className="flex h-80">
                     <div className="w-36 h-full bg-cover bg-center bg-no-repeat flex-shrink-0 rounded-md" style={{ backgroundImage: `url("example1.jpg")` }}></div>
                     <div className="flex flex-col flex-grow ml-3.5 justify-between">
-                        <p className="font-bold text-xl line-clamp-4">Lorem ipsum dolor sit amet consectetur. rgrgrg trhrhrj rehrhpjhjp</p>
+                        <p className="font-bold text-2xl line-clamp-4">Szkoła magicznych zwierząt</p>
                         <div className="flex flex-col space-y-1">
                             <div className="flex space-x-2 text-lg items-center">
                                 <IconStarFilled className="text-yellow-500" />
-                                <p>4,5</p>
+                                <p className="text-2xl">4,5</p>
                             </div>
                             <p className="text-sm">1000 opinii</p>
                         </div>
                         <div className="flex flex-col space-y-1.5">
                             <div className="customButton bg-zinc-700/80 flex items-center justify-center text-sm space-x-1.5">
-                                <IconDeviceTv size="20" />
+                                <IconDeviceTv size="25" />
                                 <p>Zobacz zwiastun</p>
                             </div>
                             <div className="customButton bg-gradient-to-r from-red-600 to-red-900 shadow-xl flex items-center justify-center text-sm space-x-1.5">
-                                <IconTicket size="20" />
+                                <IconTicket size="25" />
                                 <p>Kup bilety</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col">
-                    <div className="rounded-md border border-zinc-600 overflow-hidden">
-                        <p className="text-center bg-zinc-900/20 py-1">Opis</p>
+                <div className="flex flex-col space-y-5">
+                    <div className="movieContentDiv">
+                        <p className="movieContentHeader">Opis</p>
                         <p className="text-justify italic p-3 bg-zinc-700/50">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed reiciendis enim neque officiis alias nisi quod est voluptatum ullam deleniti, porro explicabo ea labore rerum perferendis illo quia accusantium excepturi hic officia distinctio quo provident itaque eligendi. Maxime voluptate saepe dicta. Neque, eligendi tempora consequuntur sunt vel natus tempore eveniet cupiditate facilis excepturi officia amet, temporibus optio libero quasi nisi minus earum est doloremque. Commodi quis placeat delectus unde quas incidunt veniam sequi blanditiis quaerat tempore excepturi eligendi quibusdam natus voluptas omnis consequuntur autem, consequatur ut corrupti expedita magni. Atque dolores iusto ex maiores, omnis quam. Modi alias quod maxime?</p>
+                    </div>
+                    <div className="movieContentDiv">
+                        <p className="movieContentHeader">Opinie</p>
+                        <div className="flex flex-col p-3 bg-zinc-700/50">
+                            <AddReview/>
+                            <div className="flex flex-col mt-5">
+                                <ReviewsSummary/>
+                                <p className="text-center mb-3">Opinie innych widzów</p>
+                                <div className="flex flex-col">
+                                    <Review/>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
