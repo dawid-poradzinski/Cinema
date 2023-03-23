@@ -37,9 +37,9 @@ input, textarea {
 }
 
 .movieContentDiv {
-  @apply rounded-md border border-zinc-600 overflow-hidden;
+  @apply rounded-md overflow-hidden border-zinc-900/80 border-2;
 }
 
 .movieContentHeader {
-  @apply text-center bg-zinc-900/20 py-1;
+  @apply px-5 py-2 text-lg bg-zinc-900/80;
 }

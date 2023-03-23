@@ -1,7 +1,7 @@
 import { IconStar } from "@tabler/icons-react";
 const AddReview = () => {
     return (
-        <div className="flex flex-col relative border-2 border-gray-500 bg-zinc-700 border-dashed p-4 rounded-md">
+        <div className="flex flex-col flex-grow relative border-2 border-gray-500 bg-zinc-700 border-dashed p-4 rounded-md h-80">
             <p className="text-2xl mb-5 text-center">Dodaj opinię</p>
             <div className="flex">
                 <p className="mr-2">Ocena:</p>

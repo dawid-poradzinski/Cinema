@@ -1,7 +1,7 @@
 import { IconCheck, IconStarFilled } from "@tabler/icons-react";
 const Review = () => {
     return (
-        <div className="flex flex-col bg-zinc-900 rounded-md space-y-4 overflow-hidden">
+        <div className="flex flex-col bg-zinc-900 border border-zinc-900 rounded-md space-y-4 overflow-hidden">
             <div className="flex flex-col p-4 space-y-4">
                 <div className="flex items-center space-x-2">
                     <img className="w-6 h-6 rounded-full" src="profile.jpg" alt="profile" />

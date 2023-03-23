@@ -1,7 +1,7 @@
 import { IconStarFilled } from "@tabler/icons-react";
 
 const ReviewsSummary = () => {
-    return (<div className="flex flex-col bg-zinc-900 rounded-md mb-5 p-5 shadow-2xl">
+    return (<div className="flex flex-col flex-grow bg-zinc-900 rounded-md mb-5 p-5 shadow-2xl justify-evenly h-80">
         <div className="flex text-4xl space-x-3 justify-center">
             <IconStarFilled className="text-yellow-500" size="40" />
             <p>4,5</p>

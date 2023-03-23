@@ -11,7 +11,7 @@ const Login = () => {
                     </div>
                     <div>
                         <form className="space-y-2">
-                            <input type="email" placeholder="Adres e-mail" />
+                            <input type="text" placeholder="Adres e-mail lub nazwa użytkownika" />
                             <input type="password" placeholder="Hasło" />
                             <button className="customButton bg-orange-700 !mt-5 hover:bg-orange-600">Zaloguj się</button>
                         </form>
