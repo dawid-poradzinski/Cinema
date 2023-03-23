@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import cinema.tickets.booking.cinematicketsbooking.api.exception.MovieDoesntExistsException;
 import cinema.tickets.booking.cinematicketsbooking.api.model.MovieBody;
 import cinema.tickets.booking.cinematicketsbooking.sql.model.Movie;
 import cinema.tickets.booking.cinematicketsbooking.sql.repository.MovieRepository;
@@ -31,11 +32,11 @@ public class MovieService {
         return movieRepository.save(movie);
     }
 
-    public Movie getMovie(Long id) {
+    public Movie getMovie(Long id) throws MovieDoesntExistsException {
         Optional<Movie> opMovie = movieRepository.getSingleMovieById(id);
         if(opMovie.isPresent()) {
             return opMovie.get();
         }
-        return null;
+        throw new MovieDoesntExistsException();
     }
 }

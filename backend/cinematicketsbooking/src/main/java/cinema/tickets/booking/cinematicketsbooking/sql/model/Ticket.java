@@ -27,4 +27,6 @@ public class Ticket {
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Person.class)
     @JoinColumn(name = "people")
     private Person person;
+
+    public Ticket() {};
 }

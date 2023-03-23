@@ -21,4 +21,5 @@ public class Room {
     @OneToMany(mappedBy = "room", fetch = FetchType.LAZY)
     private Set<Film> films;
     
+    public Room() {};
 }

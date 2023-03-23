@@ -39,4 +39,6 @@ public class Person {
     @Getter(AccessLevel.NONE)
     private Set<Ticket> tickets;
 
+    public Person(){};
+
 }

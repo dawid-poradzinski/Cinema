@@ -36,4 +36,6 @@ public class Film {
 
     @OneToMany(mappedBy = "film", fetch = FetchType.LAZY, targetEntity = Ticket.class)
     private Set<Ticket> tickets;
+
+    public Film() {};
 }

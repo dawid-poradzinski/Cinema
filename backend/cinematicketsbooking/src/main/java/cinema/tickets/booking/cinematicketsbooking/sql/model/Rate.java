@@ -31,4 +31,6 @@ public class Rate {
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Movie.class)
     @JoinColumn(name = "movie")
     private Movie movie;
+
+    public Rate() {};
 }

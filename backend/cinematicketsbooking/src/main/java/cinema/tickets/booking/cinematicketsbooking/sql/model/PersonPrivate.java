@@ -42,4 +42,6 @@ public class PersonPrivate {
         WORKER,
         ADMIN,
     }
+
+    public PersonPrivate() {};
 }
