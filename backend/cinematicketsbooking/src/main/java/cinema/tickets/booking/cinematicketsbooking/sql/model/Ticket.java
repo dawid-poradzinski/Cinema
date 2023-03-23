@@ -24,7 +24,7 @@ public class Ticket {
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Film.class)
     @JoinColumn(name = "film")
     private Film film;
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = People.class)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Person.class)
     @JoinColumn(name = "people")
-    private People people;
+    private Person person;
 }

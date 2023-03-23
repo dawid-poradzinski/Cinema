@@ -13,10 +13,10 @@ import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity(name = "people_private")
+@Entity(name = "person_private")
 @Setter
 @Getter
-public class PeoplePrivate {
+public class PersonPrivate {
 
     @Id
     @Column(name = "id", unique = true)
@@ -32,7 +32,7 @@ public class PeoplePrivate {
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @MapsId
     @JoinColumn(name = "id")
-    private People people;
+    private Person person;
 
     public enum Rank{
         USER,

@@ -9,8 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import cinema.tickets.booking.cinematicketsbooking.api.exception.UserAlreadyExistsException;
+import cinema.tickets.booking.cinematicketsbooking.api.model.LoginBody;
+import cinema.tickets.booking.cinematicketsbooking.api.model.LoginResponse;
 import cinema.tickets.booking.cinematicketsbooking.api.model.RegistrationBody;
-import cinema.tickets.booking.cinematicketsbooking.sql.service.PeopleService;
+import cinema.tickets.booking.cinematicketsbooking.sql.model.Person;
+import cinema.tickets.booking.cinematicketsbooking.sql.service.PersonPrivateService;
 import jakarta.validation.Valid;
 
 @RestController
@@ -18,16 +21,28 @@ import jakarta.validation.Valid;
 public class AuthenticationController {
 
     @Autowired
-    public PeopleService peopleService;
+    public PersonPrivateService personPrivateService;
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@Valid @RequestBody RegistrationBody registrationBody){
+    public ResponseEntity<String> registerUser(@Valid @RequestBody RegistrationBody registrationBody) {
 
         try {
-            peopleService.registerPeople(registrationBody);
+            personPrivateService.registerPerson(registrationBody);
             return ResponseEntity.ok().build();
         } catch (UserAlreadyExistsException e) {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
+        }
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<LoginResponse> loginUser(@Valid @RequestBody LoginBody loginBody) {
+        String jwt = personPrivateService.loginPerson(loginBody);
+        if(jwt == null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        }else {
+            LoginResponse response = new LoginResponse();
+            response.setJwt(jwt);
+            return ResponseEntity.ok(response);
         }
     }
 }

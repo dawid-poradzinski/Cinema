@@ -22,9 +22,9 @@ public class Rate {
     @Column(name = "text")
     private String text;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = People.class)
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Person.class)
     @JoinColumn(name = "people")
-    private People people;
+    private Person person;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Movie.class)
     @JoinColumn(name = "movie")

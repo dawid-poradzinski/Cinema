@@ -2,7 +2,6 @@ package cinema.tickets.booking.cinematicketsbooking.sql.model;
 
 import java.util.Set;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -10,14 +9,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
-@Entity(name = "people")
-public class People {
+@Entity(name = "person")
+public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
@@ -32,17 +31,12 @@ public class People {
     @Column(name = "email", unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "people", fetch = FetchType.LAZY, targetEntity = Rate.class)
+    @OneToMany(mappedBy = "person", fetch = FetchType.LAZY, targetEntity = Rate.class)
+    @Getter(AccessLevel.NONE)
     private Set<Rate> rates;
 
-    @OneToMany(mappedBy = "people", fetch = FetchType.LAZY, targetEntity = Ticket.class)
+    @OneToMany(mappedBy = "person", fetch = FetchType.LAZY, targetEntity = Ticket.class)
+    @Getter(AccessLevel.NONE)
     private Set<Ticket> tickets;
 
-    @OneToOne(mappedBy = "people", fetch = FetchType.LAZY, cascade = CascadeType.ALL ,targetEntity = PeoplePrivate.class)
-    private PeoplePrivate peoplePrivate;
-
-    public void setPeoplePrivate(PeoplePrivate peoplePrivate){
-        this.peoplePrivate = peoplePrivate;
-        this.peoplePrivate.setPeople(this);
-    }
 }
