@@ -4,26 +4,17 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 
-//  
-//  Przyjmuje:
-// {
-//  "username" : String
-//  "password" : String
-// }
-// Zwraca:
-// {
-//  "jwt" : String 
-// }
-// 
-
 @Getter
-public class LoginBody {
+public class MovieBody {
 
     @NotNull
     @NotBlank
-    private String username;
+    private String title;
     @NotNull
     @NotBlank
-    private String password;
-
+    private String description;
+    @NotNull
+    @NotBlank
+    private String imageLink;
+    
 }

@@ -1,5 +1,7 @@
 package cinema.tickets.booking.cinematicketsbooking.sql.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,6 +31,7 @@ public class PersonPrivate {
     @Column(name = "rank")
     private Rank rank = Rank.USER;
 
+    @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @MapsId
     @JoinColumn(name = "id")

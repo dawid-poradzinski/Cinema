@@ -1,4 +1,4 @@
-package cinema.tickets.booking.cinematicketsbooking.api.model;
+package cinema.tickets.booking.cinematicketsbooking.api.model.response;
 
 import lombok.Getter;
 import lombok.Setter;

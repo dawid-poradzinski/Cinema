@@ -28,7 +28,7 @@ public class JWTService {
     private static final String USERNAME_KEY = "USERNAME";
 
     @PostConstruct
-    public void PostConstruct() {
+    public void postConstruct() {
         algorithm = Algorithm.HMAC256(algoritmKey);
     }
 
@@ -38,5 +38,9 @@ public class JWTService {
         .withExpiresAt(new Date(System.currentTimeMillis() + (1000 * expiryInSecond)))
         .withIssuer(issuer)
         .sign(algorithm);
+    }
+
+    public String getUsername(String token) {
+        return JWT.decode(token).getClaim(USERNAME_KEY).asString();
     }
 }

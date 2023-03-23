@@ -56,11 +56,9 @@ public class PersonPrivateService {
         if(opPerson.isPresent()){
             Person person = opPerson.get();
 
-            long id = person.getId();
+            PersonPrivate personPrivate;
 
-            PersonPrivate personPrivate = new PersonPrivate();
-
-            personPrivate = personPrivateRepository.findById(id).get();
+            personPrivate = personPrivateRepository.findById(person.getId()).get();
 
             if(encryptionService.verifyPassword(loginBody.getPassword(), personPrivate.getPassword())) {
                 return jwtService.generateJWT(person);
