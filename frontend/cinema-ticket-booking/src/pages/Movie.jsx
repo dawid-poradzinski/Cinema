@@ -2,6 +2,7 @@ import { IconDeviceTv, IconStar, IconStarFilled, IconTicket } from "@tabler/icon
 import AddReview from "../components/AddReview";
 import Review from "../components/Review";
 import ReviewsSummary from "../components/ReviewsSummary";
+import Container from "../buyticket/Container";
 
 const Movie = () => {
     return (
@@ -55,6 +56,7 @@ const Movie = () => {
                     </div>
                 </div>
             </div>
+            <Container/>
         </div>
     );
 }
