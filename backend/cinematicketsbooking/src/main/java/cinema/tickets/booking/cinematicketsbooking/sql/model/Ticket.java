@@ -1,5 +1,7 @@
 package cinema.tickets.booking.cinematicketsbooking.sql.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -24,6 +26,7 @@ public class Ticket {
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Film.class)
     @JoinColumn(name = "film")
     private Film film;
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Person.class)
     @JoinColumn(name = "people")
     private Person person;

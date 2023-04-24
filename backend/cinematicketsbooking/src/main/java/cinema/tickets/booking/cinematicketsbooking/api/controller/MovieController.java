@@ -1,11 +1,10 @@
 package cinema.tickets.booking.cinematicketsbooking.api.controller;
 
 import java.util.List;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -14,11 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import cinema.tickets.booking.cinematicketsbooking.api.exception.MovieDoesntExistsException;
-import cinema.tickets.booking.cinematicketsbooking.api.model.MovieBody;
-import cinema.tickets.booking.cinematicketsbooking.api.model.response.MovieResponse;
 import cinema.tickets.booking.cinematicketsbooking.sql.model.Movie;
+import cinema.tickets.booking.cinematicketsbooking.sql.model.Rate;
 import cinema.tickets.booking.cinematicketsbooking.sql.service.MovieService;
-import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/movie")
@@ -31,36 +28,52 @@ public class MovieController {
         this.movieService = movieService;
     }
     
-    @GetMapping("/get")
+    @PostMapping("/all/info")
     public List<Movie> getMovies() {
         return movieService.getMovies();
     }
 
-    @PutMapping("/add")
-    public Movie addMovie(@Valid @RequestBody MovieBody movieBody) {
-        return movieService.addMovie(movieBody);
-    } 
-
-    @PostMapping("/get/{id}")
-    public ResponseEntity<MovieResponse> getMovie(@PathVariable long id) { 
+    @PostMapping("/{id}/info")
+    public ResponseEntity<Movie> getMovie(@PathVariable long id) { 
         Movie movie;
         try {
             movie = movieService.getMovie(id);
         } catch (MovieDoesntExistsException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-        
-        MovieResponse movieResponse = new MovieResponse();
-        
-        movieResponse.setId(movie.getId());
-        movieResponse.setTitle(movie.getTitle());
-        movieResponse.setDescription(movie.getDescription());
-        movieResponse.setImageLink(movie.getImageLink());
-        movieResponse.setRate(movie.getRate());
-        movieResponse.setNumberOfRates(movie.getNumberOfRates());
-
-        return ResponseEntity.ok(movieResponse);
+                
+        return ResponseEntity.ok(movie);
 
     }
 
+    @PutMapping("/add")
+    public ResponseEntity<Movie> addMovie(@RequestBody Movie movieBody) {
+        
+        try {
+            Movie movie = movieService.addMovie(movieBody);
+            return ResponseEntity.ok(movie);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).build();
+        }
+       
+    } 
+
+    @DeleteMapping("/{id}/delete")
+    public ResponseEntity<Object> removeMovie(@PathVariable Long id) {
+        try {
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
+    @PostMapping("/{id}/rates")
+    public ResponseEntity<List<Rate>> getRates(@PathVariable Long id) {
+        try {
+            return ResponseEntity.ok(movieService.getRates(id));
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
 }
+
