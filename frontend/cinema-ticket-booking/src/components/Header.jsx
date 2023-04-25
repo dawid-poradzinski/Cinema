@@ -20,7 +20,7 @@ const Header = () => {
                 </div>
                 <div className="w-1/3 lg:w-fit lg:order-3">
                     <div className="w-fit ml-auto">
-                        <Link to={`account/login`}>
+                        <Link to={`auth/login`}>
                             <div className="flex items-center w-fit space-x-1.5 p-1 sm:py-1.5 sm:pl-2 sm:pr-3 rounded bg-zinc-700/50 transition duration-300 hover:bg-zinc-700/90 hover:shadow-xl">
                                 <IconUserCircle size="30" />
                                 <p className="hidden sm:block">Zaloguj się</p>

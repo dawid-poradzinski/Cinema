@@ -8,12 +8,14 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import LoginPage from './account/LoginPage';
+import LoginPage from './account/Auth';
 import LoginComponent from './account/Login';
 import RegisterComponent from './account/Register';
 import Home from './pages/Home';
 import AddEditMovie from './admin/AddEditMovie';
 import Movie from './pages/Movie';
+import Auth from './account/Auth';
+import Account from './account/Account';
 
 const router = createBrowserRouter([
   {
@@ -29,8 +31,8 @@ const router = createBrowserRouter([
         element: <Repertoire />
       }, 
       {
-        path: "account",
-        element: <LoginPage />,
+        path: "auth",
+        element: <Auth />,
         children: [
           {
             path: "login",
@@ -50,6 +52,10 @@ const router = createBrowserRouter([
         path: "movie",
         element: <Movie/>
       },
+      {
+        path: "account",
+        element: <Account />
+      }
 
     ]
   },

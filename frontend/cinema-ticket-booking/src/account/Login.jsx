@@ -17,7 +17,7 @@ const Login = () => {
             <div className="space-y-3">
                 <p className="text-zinc-500 text-sm text-center">Nie masz u nas konta?</p>
                 <div>
-                    <Link to={`/account/register`}>
+                    <Link to={`/auth/register`}>
                         <div className="customButton bg-yellow-700 hover:bg-yellow-600 text-center flex justify-center items-center">
                             <p>Zarejestruj się</p>
                         </div>

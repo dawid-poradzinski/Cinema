@@ -1,7 +1,7 @@
 import Login from "./Login";
 import { Outlet } from 'react-router-dom';
 
-const Account = () => {
+const Auth = () => {
     return (
         <div className="">
             <div className="md:w-screen md:h-screen pt-20 lg:pt-16 md:flex md:items-center md:justify-center">
@@ -15,4 +15,4 @@ const Account = () => {
     );
 }
 
-export default Account;
+export default Auth;
