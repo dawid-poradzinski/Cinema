@@ -2,8 +2,9 @@ import { IconArmchair, IconChevronRight, IconX } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import SelectDate from "./SelectDate";
 import SelectPlace from "./SelectPlace";
+import Summary from "./Summary";
 
-const Container = () => {
+const Container = (props) => {
     useEffect(() => {
         document.body.classList.add("overflow-hidden");
     });
@@ -14,11 +15,12 @@ const Container = () => {
             <div className="flex flex-col w-full h-full rounded-md bg-zinc-800 overflow-hidden border border-zinc-700 lg:max-w-4xl">
                 <div className="flex justify-between p-5 bg-zinc-800">
                     <p>Kup bilet</p>
-                    <IconX />
+                    <IconX onClick={props.closeWindow} className="cursor-pointer" />
                 </div>
                 <div className="flex flex-col flex-grow bg-zinc-900 overflow-y-auto">
                     {(stage === 0 && <SelectDate/>) ||
-                    (stage === 1 && <SelectPlace/>)
+                    (stage === 1 && <SelectPlace/>) ||
+                    (stage === 2 && <Summary/>)
 
                     }
                 </div>

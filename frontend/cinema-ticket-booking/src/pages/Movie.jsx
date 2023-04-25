@@ -3,8 +3,17 @@ import AddReview from "../components/AddReview";
 import Review from "../components/Review";
 import ReviewsSummary from "../components/ReviewsSummary";
 import Container from "../buyticket/Container";
+import { useState } from "react";
 
 const Movie = () => {
+    const [buyTicketWindowVisible, setBuyTicketWindowVisible] = useState(false);
+    const switchBuyTicket = () => {
+        if(buyTicketWindowVisible) {
+            document.body.classList.remove("overflow-hidden");
+        }
+        setBuyTicketWindowVisible(!buyTicketWindowVisible);
+    }
+
     return (
         <div className="pageMainDivStyle bg-fixed bg-center bg-cover bg-no-repeat" style={{ backgroundImage: `url('example1.jpg')` }}>
             <div className="w-full rounded-md bg-zinc-800/90 flex md:backdrop-blur-lg flex-col p-3.5 md:p-16 space-y-4 md:max-w-7xl">
@@ -27,7 +36,7 @@ const Movie = () => {
                                 <IconDeviceTv size="25" />
                                 <p>Zobacz zwiastun</p>
                             </div>
-                            <div className="customButton bg-gradient-to-r from-red-600 to-red-900 shadow-xl flex items-center justify-center text-sm space-x-1.5 hover:brightness-110 hover:scale-105">
+                            <div onClick={switchBuyTicket} className="customButton bg-gradient-to-r from-red-600 to-red-900 shadow-xl flex items-center justify-center text-sm space-x-1.5 hover:brightness-110 hover:scale-105">
                                 <IconTicket size="25" />
                                 <p>Kup bilety</p>
                             </div>
@@ -56,7 +65,10 @@ const Movie = () => {
                     </div>
                 </div>
             </div>
-            <Container/>
+            {
+                (buyTicketWindowVisible && <Container closeWindow={switchBuyTicket}/>)
+            }
+            
         </div>
     );
 }

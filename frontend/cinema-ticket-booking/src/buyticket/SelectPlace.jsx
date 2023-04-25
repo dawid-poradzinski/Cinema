@@ -33,7 +33,7 @@ const SelectPlace = () => {
             <p className="text-xl self-start mb-2">Wybierz lokalizację</p>
             <p className="text-md self-start mb-2">Wybrano: 0 miejsc</p>
             <div className="flex flex-col w-full h-full overflow-auto md:my-5 p-5 md:p-0">
-                <div className="w-[587px] h-10 flex-shrink-0 bg-white"></div>
+                <div className="w-[638px] ml-0.5 mb-0.5 h-10 flex-shrink-0 rounded-sm bg-white"></div>
                 <table className="w-[587px]">
                     <tbody>
                         {body}
