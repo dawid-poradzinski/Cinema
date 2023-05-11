@@ -22,6 +22,7 @@ public class WebSecurityConfig {
         http.authorizeHttpRequests()
         .requestMatchers("/movie/**").permitAll()
         .requestMatchers("/rate/**").permitAll()
+        .requestMatchers("/room/**").permitAll()
         .requestMatchers("/auth/register").permitAll()
         .requestMatchers("/auth/login").permitAll()
         .anyRequest().authenticated();

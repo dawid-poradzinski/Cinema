@@ -1,7 +1,6 @@
 package cinema.tickets.booking.cinematicketsbooking.api.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -57,15 +56,14 @@ public class RoomController {
     }
 
     @DeleteMapping("/{id}/delete")
-    public ResponseEntity<Room> deleteRoom(@PathVariable Long id) throws RoomDoesntExistException {
+    public ResponseEntity<Room> deleteRoom(@PathVariable Long id){
        
-        Room room = roomService.deleteRoom(id);
-
-        if(room != null) {
+        Room room;
+        try {
+            room = roomService.deleteRoom(id);
             return ResponseEntity.ok(room);
+        } catch (RoomDoesntExistException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
-        return ResponseEntity.status(HttpStatus.NOT_IMPLEMENTED).build();
-
-      
     }
 }

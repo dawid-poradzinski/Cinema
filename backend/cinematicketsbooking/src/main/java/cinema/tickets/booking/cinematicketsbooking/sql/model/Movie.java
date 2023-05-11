@@ -35,6 +35,9 @@ public class Movie {
     @Column(name = "image_link")
     private String imageLink;
 
+    @Column(name = "movie_duration")
+    private Long minutes;
+
     @JsonIgnore
     @OneToMany(mappedBy = "movie", targetEntity = Rate.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Movie> rates;
