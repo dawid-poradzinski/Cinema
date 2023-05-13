@@ -8,7 +8,6 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import LoginPage from './account/Auth';
 import LoginComponent from './account/Login';
 import RegisterComponent from './account/Register';
 import Home from './pages/Home';
@@ -16,6 +15,8 @@ import AddEditMovie from './admin/AddEditMovie';
 import Movie from './pages/Movie';
 import Auth from './account/Auth';
 import Account from './account/Account';
+import Menu from './account/Menu';
+import Tickets from './account/Tickets';
 
 const router = createBrowserRouter([
   {
@@ -54,7 +55,17 @@ const router = createBrowserRouter([
       },
       {
         path: "account",
-        element: <Account />
+        element: <Account />,
+        children: [
+          {
+            path: "menu",
+            element: <Menu />
+          },
+          {
+            path: "tickets",
+            element: <Tickets />
+          }
+        ]
       }
 
     ]
