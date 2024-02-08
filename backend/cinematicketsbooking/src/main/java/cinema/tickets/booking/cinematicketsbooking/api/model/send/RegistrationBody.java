@@ -1,4 +1,4 @@
-package cinema.tickets.booking.cinematicketsbooking.api.model;
+package cinema.tickets.booking.cinematicketsbooking.api.model.send;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

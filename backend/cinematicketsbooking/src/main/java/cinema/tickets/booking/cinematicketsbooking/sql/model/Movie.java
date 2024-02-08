@@ -4,6 +4,7 @@ import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -34,29 +35,23 @@ public class Movie {
     @Column(name = "image_link")
     private String imageLink;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "movie", targetEntity = Rate.class, fetch = FetchType.LAZY)
-    private Set<Rate> rates;
+    @Column(name = "movie_duration")
+    private Long minutes;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "movie", targetEntity = Film.class, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "movie", targetEntity = Rate.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Movie> rates;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "movie", targetEntity = Film.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Film> films;
 
     @Transient
-    private double rate;
+    private Double rating;
 
     @Transient
-    private long numberOfRates;
-
+    private Long numberOfRates;
+    
     public Movie() {};
-
-    public Movie(long id, String title, String description, String imageLink, double rate, long numberOfRates) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.imageLink = imageLink;
-        this.rate = rate;
-        this.numberOfRates = numberOfRates;
-    }
 
 }

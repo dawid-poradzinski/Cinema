@@ -2,6 +2,9 @@ package cinema.tickets.booking.cinematicketsbooking.sql.model;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -31,11 +34,13 @@ public class Person {
     @Column(name = "email", unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "person", fetch = FetchType.LAZY, targetEntity = Rate.class)
+    @JsonIgnore
+    @OneToMany(mappedBy = "person", fetch = FetchType.LAZY, targetEntity = Rate.class, cascade = CascadeType.ALL)
     @Getter(AccessLevel.NONE)
     private Set<Rate> rates;
 
-    @OneToMany(mappedBy = "person", fetch = FetchType.LAZY, targetEntity = Ticket.class)
+    @JsonIgnore
+    @OneToMany(mappedBy = "person", fetch = FetchType.LAZY, targetEntity = Ticket.class, cascade = CascadeType.ALL)
     @Getter(AccessLevel.NONE)
     private Set<Ticket> tickets;
 

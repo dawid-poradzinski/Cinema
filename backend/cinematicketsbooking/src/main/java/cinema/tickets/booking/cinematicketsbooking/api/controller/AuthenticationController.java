@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import cinema.tickets.booking.cinematicketsbooking.api.exception.UserAlreadyExistsException;
-import cinema.tickets.booking.cinematicketsbooking.api.model.LoginBody;
-import cinema.tickets.booking.cinematicketsbooking.api.model.RegistrationBody;
 import cinema.tickets.booking.cinematicketsbooking.api.model.response.LoginResponse;
+import cinema.tickets.booking.cinematicketsbooking.api.model.send.LoginBody;
+import cinema.tickets.booking.cinematicketsbooking.api.model.send.RegistrationBody;
 import cinema.tickets.booking.cinematicketsbooking.sql.model.Person;
 import cinema.tickets.booking.cinematicketsbooking.sql.service.PersonPrivateService;
 import jakarta.validation.Valid;
